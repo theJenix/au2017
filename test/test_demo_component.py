@@ -9,7 +9,7 @@ import adsk.core
 
 from demo_component import make_demo_component_name
 
-class GetValueTestCase(unittest.TestCase):
+class DemoComponentNameTestCase(unittest.TestCase):
     def setUp(self):
         self.expected = 'DEMO: Widget'
         self.value = 'Widget'
