@@ -21,7 +21,7 @@ class InputCreatedTestCase(sodium.CommandTestCase):
         command.isAutoExecute = False
         command.isExecutedWhenPreEmpted = False
 
-        assert 'name2' in inputs
+        assert 'name' in inputs
 
     def tearDown(self):
         app = adsk.core.Application.get()
@@ -54,8 +54,9 @@ class ComponentCreatedTestCase(sodium.CommandTestCase):
         app.userInterface.commandDefinitions.itemById('SelectCommand').execute()
         self._document.close(False)
 
+
 runner = sodium.SodiumTestRunner()
-def run(context):
+def run_tests():
     try:
         global runner
         runner.add(InputCreatedTestCase())
@@ -64,6 +65,16 @@ def run(context):
         runner.run()
     except:
         traceback.print_exc()
+
+
+def run_inspector():
+    inspector = sodium.SodiumInspector()
+    inspector.inspect('AU2017AddInCommand')
+
+
+def run(context):
+    #run_tests()
+    run_inspector()
 
 
 def stop(context):

@@ -3,7 +3,10 @@
 
 import adsk.core, adsk.fusion, adsk.cam, traceback
 
+from .demo_component import make_demo_component_name
+
 handler = None
+
 
 class AU2017AddInExecuteHandler(adsk.core.CommandEventHandler):
 
@@ -15,7 +18,6 @@ class AU2017AddInExecuteHandler(adsk.core.CommandEventHandler):
             command = args.command
             inputs = command.commandInputs
             nameInput = inputs.itemById('name')
-            name = nameInput.value
 
             design = app.activeProduct
             rootComp = design.rootComponent
@@ -23,7 +25,7 @@ class AU2017AddInExecuteHandler(adsk.core.CommandEventHandler):
             trans = adsk.core.Matrix3D.create()
             occ = rootComp.occurrences.addNewComponent(trans)
             comp = occ.component
-            comp.name = "DEMO: " + name
+            comp.name = make_demo_component_name(nameInput)
         except:
             if ui:
                 ui.messageBox('Failed:\n{}'.format(traceback.format_exc()))

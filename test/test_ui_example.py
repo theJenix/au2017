@@ -7,15 +7,17 @@ from .lib.f360_mock.create import create_object
 # Required so that adsk.fusion.Component can be created
 import adsk.core
 
+from demo_component import make_demo_component_name
 
 class GetValueTestCase(unittest.TestCase):
     def setUp(self):
-        self.value = 5
+        self.expected = 'DEMO: Widget'
+        self.value = 'Widget'
         self.undertest = create_object('adsk.core.StringValueCommandInput',
                                        {'value': lambda _: self.value})
 
     def test_get_value(self):
-        actual = self.undertest.value
-        self.assertEqual(self.value, actual)
+        actual = make_demo_component_name(self.undertest)
+        self.assertEqual(self.expected, actual)
 
 
