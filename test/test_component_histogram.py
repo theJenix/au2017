@@ -2,7 +2,7 @@
 
 import unittest
 
-from .lib.f360_mock.create import create_object
+from .lib.f360mock.create import create_object
 from component_histogram import component_histogram
 
 
