@@ -1,0 +1,3 @@
+[submodule "sodium"]
+	path = sodium
+	url = git@github.com:bommerio/sodium.git
