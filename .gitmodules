@@ -1,9 +1,6 @@
 [submodule "submodules/sodium"]
 	path = submodules/sodium
 	url = git@github.com:bommerio/sodium.git
-[submodule "submodules/f360-mock"]
-	path = submodules/f360-mock
-	url = git@github.com:bommerio/f360-mock.git
 [submodule "submodules/f360mock"]
 	path = submodules/f360mock
 	url = git@github.com:bommerio/f360mock.git
